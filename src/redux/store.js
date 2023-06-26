@@ -4,6 +4,7 @@ import userSlice from "../pages/userSlice";
 import persistReducer from "redux-persist/es/persistReducer";
 import thunk from "redux-thunk";
 import persistStore from "redux-persist/es/persistStore";
+import charSlice from "../pages/Characters/charSlice";
 
 
 const persistConfig = {
@@ -12,7 +13,8 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-    user: userSlice
+    user: userSlice,
+    chars: charSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
