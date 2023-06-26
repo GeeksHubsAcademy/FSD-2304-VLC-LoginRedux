@@ -20,24 +20,27 @@ export const Header = () => {
         >
           Home
         </div>
-        
 
         {datos?.credentials?.token ? (
-          <div
-            onClick={() => {
-              dispatch(logout());
-            }}
-          >
-            Logout
-          </div>
+          <>
+            <div onClick={()=>{navigate("/profile")}}>Perfil</div>
+            <div
+              onClick={() => {
+                dispatch(logout());
+                navigate("/")
+              }}
+            >
+              Logout
+            </div>
+          </>
         ) : (
           <div
-          onClick={() => {
-            navigate("/login");
-          }}
-        >
-          Login
-        </div>
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Login
+          </div>
         )}
       </div>
     </>

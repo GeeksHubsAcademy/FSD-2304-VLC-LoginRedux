@@ -31,11 +31,12 @@ export const Login = () => {
     loginUser(body)
     .then(res => {
         let decoded = jwtDecode(res)
+        console.log(decoded)
         dispatch(
             login({
                 token: res,
                 name: decoded.name,
-                role: decoded.rol
+                role: decoded.roleId
             })
         )
         navigate("/")
