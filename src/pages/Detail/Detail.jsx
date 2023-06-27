@@ -7,19 +7,20 @@ export const Detail = () => {
   let character = useSelector(charData);
   let charId = character.id;
 
-let [char, setChar] = useState({})
+  let [char, setChar] = useState({});
 
-  useEffect(()=>{
-    getOneCharacter(charId)
-    .then(char => setChar(char))
-  },[])
+  useEffect(() => {
+    getOneCharacter(charId).then((char) => setChar(char));
+  }, []);
+  
   return (
     <>
-      {char?.name}
-      {char?.status}
-      {char?.location?.name}
-      <img src={char?.image}></img>
-     
+      <div>
+        <p> {char?.name}</p>
+        <p> {char?.status}</p>
+        <p>{char?.location?.name}</p>
+        <img src={char?.image}></img>
+      </div>
     </>
   );
 };

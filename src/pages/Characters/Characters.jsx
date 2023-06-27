@@ -9,10 +9,14 @@ import { useNavigate } from "react-router-dom";
 export const Characters = () => {
   const [chars, setChars] = useState([]);
   const [page, setPage] = useState(1);
-  const [pages, setPages] = useState(0)
+  const [pages, setPages] = useState(0);
   const [lastPage, setLastPage] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   getAllCharacters().then((res) => setChars(res.results));
+  // }, []);
 
   useEffect(() => {
     getAllCharacters(page).then((res) => {
@@ -36,9 +40,19 @@ export const Characters = () => {
         <Row>
           {chars.map((char) => {
             return (
-              <Col key={char.id} xs={11} s={6} md={4} lg={3} xl={2}>
+              <Col
+                key={char.id}
+                xs={11}
+                s={6}
+                md={4}
+                lg={3}
+                xl={2}
+              >
                 <Card>
-                  <Card.Img variant="top" src={char.image} />
+                  <Card.Img
+                    variant="top"
+                    src={char.image}
+                  />
                   <Card.Body>
                     <Card.Title>{char.name}</Card.Title>
                     <Card.Text>{char.location.name}</Card.Text>
@@ -57,13 +71,25 @@ export const Characters = () => {
         <Row className="justify-content-center">
           {page > 1 ? (
             <>
-              <Col xs={11} md={2}>
-                <Button className="w-100" onClick={() => setPage(1)}>
+              <Col
+                xs={11}
+                md={2}
+              >
+                <Button
+                  className="w-100"
+                  onClick={() => setPage(1)}
+                >
                   FIRST PAGE
                 </Button>
               </Col>
-              <Col xs={11} md={3}>
-                <Button className="w-100" onClick={() => setPage(page - 1)}>
+              <Col
+                xs={11}
+                md={3}
+              >
+                <Button
+                  className="w-100"
+                  onClick={() => setPage(page - 1)}
+                >
                   PREVIOUS PAGE
                 </Button>
               </Col>
@@ -73,13 +99,25 @@ export const Characters = () => {
           )}
           {!lastPage ? (
             <>
-              <Col xs={11} md={3}>
-                <Button className="w-100" onClick={() => setPage(page + 1)}>
+              <Col
+                xs={11}
+                md={3}
+              >
+                <Button
+                  className="w-100"
+                  onClick={() => setPage(page + 1)}
+                >
                   NEXT PAGE
                 </Button>
               </Col>
-              <Col xs={11} md={2}>
-                <Button className="w-100" onClick={() => setPage(pages)}>
+              <Col
+                xs={11}
+                md={2}
+              >
+                <Button
+                  className="w-100"
+                  onClick={() => setPage(pages)}
+                >
                   LAST PAGE
                 </Button>
               </Col>

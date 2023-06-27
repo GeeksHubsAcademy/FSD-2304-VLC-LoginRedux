@@ -30,6 +30,7 @@ export const Login = () => {
         setToken(res);
       })
       .catch((error) => {
+        console.log(error)
         setUserError({ credentials: error.response.data.message });
       });
   };

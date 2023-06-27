@@ -6,7 +6,7 @@ const URL = "https://express-api-basic.vercel.app";
 
 export const loginUser = async (body) => {
  
-    let res = await axios.post('http://localhost:3000/auth/login', body);
+    let res = await axios.post(`${URL}/auth/login`, body);
     return res.data.token;
  
   //   let res = await axios.post(`${URL}/auth/login`, body);
@@ -33,7 +33,6 @@ export const updateProfile = async (body, token) => {
   };
 
   let res = await axios.put(`${URL}/user/profile`, body, config);
-
   return res;
 };
 

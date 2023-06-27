@@ -13,11 +13,11 @@ export const Profile = () => {
   const datos = useSelector(userData);
   const token = datos?.credentials?.token;
 
-  // useEffect(() => {
-  //   getProfile(token).then((res) => {
-  //     setUser(res.data);
-  //   });
-  // }, []);
+//   useEffect(() => {
+//     getProfile(token).then((res) => {
+//       setUser(res.data);
+//     });
+//   }, []);
 
   const editHandler = (body, token) => {
     updateProfile(body, token)
