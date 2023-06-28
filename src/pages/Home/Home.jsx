@@ -14,7 +14,9 @@ export const Home = () => {
         <div>¡Hola, {data.name}!</div>
 
         <Button onClick={()=>navigate("/characters")}>VER PERSONAJES</Button>
+        <Button onClick={()=>navigate("/books")}>VER LIBROS</Button>
         </>
+
       ) : (
         <div>Bienvenido</div>
       )}
