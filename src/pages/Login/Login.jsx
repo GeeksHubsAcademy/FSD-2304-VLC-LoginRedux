@@ -9,6 +9,8 @@ import { login } from "../userSlice";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { inputHandler } from "../../services/useful";
+import { InputText } from "../../common/InputText/InputText";
+
 
 export const Login = () => {
   const [user, setUser] = useState({
@@ -57,25 +59,39 @@ export const Login = () => {
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control
+                <InputText
+                type={"email"}
+                design={userError.emailError ? (
+                  "errorInput"
+                ) : (
+                  ""
+                )}
+                placeholder={"Enter email"}
+                name={"email"}
+                state={setUser}
+                errorState={setUserError}
+                />
+                {/* <Form.Control
                   type="email"
                   name="email"
                   placeholder="Enter email"
                   onChange={(e) => {
                     inputHandler(e, setUser);
                   }}
-                />
+                /> */}
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  onChange={(e) => {
-                    inputHandler(e, setUser);
-                  }}
+                <InputText
+                type={"password"}
+                design={userError.passwordError ? (
+                  "errorInput"
+                ) : ("")}
+                placeholder={"Enter your password"}
+                name={"password"}
+                state={setUser}
+                errorState={setUserError}
                 />
               </Form.Group>
               {userError?.credentials ? (

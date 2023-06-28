@@ -1,3 +1,8 @@
 .darkMode{
     background-color: darkslategray;
 }
+
+
+.errorInput {
+    border: 1px red solid
+}
