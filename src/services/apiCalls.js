@@ -49,6 +49,18 @@ export const deleteBook = async (body, token) => {
   })
 }
 
+export const createAppt = async (body, token) =>{
+  let config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  let res = await axios.post(`${URL}/appointments/add`, body, config)
+
+  return res.data
+}
+
 // ENDPOINTS EXTERNOS
 
 const URL_RM = "https://rickandmortyapi.com/api";
